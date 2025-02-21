@@ -16,7 +16,7 @@ const DinoWidget = () => {
     <div className="dino-widget">
       <h2>Add a Dinosaur 🦖</h2>
       <input
-        type="text"
+        type="text "
         value={dino}
         onChange={(e) => setDino(e.target.value)}
         placeholder="Enter dinosaur name"
