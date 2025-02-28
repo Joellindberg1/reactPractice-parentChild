@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../../Components/Button";
+import Button from "../../Components/Button/Button";
 import "./dinoWidget.scss";
 
 const DinoWidget = () => {

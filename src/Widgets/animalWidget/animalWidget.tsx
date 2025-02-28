@@ -1,6 +1,6 @@
 import  { useState } from "react";
 import "./animalWidget.scss"; // Använd CSS-modul
-import Button from "../../Components/Button";
+import Button from "../../Components/Button/Button";
 
 export type AnimalType = {
   name: string;
