@@ -1,6 +1,7 @@
 import "./app.scss";
 import DinoWidget from "./Widgets/dinoWidget/dinoWidget";
 import FruitsWidget from "./Widgets/fruitsWidget/fruitsWidget";
+import AnimalWidget from "./Widgets/animalWidget/animalWidget";
 
 const App = () => {
   return (
@@ -19,6 +20,11 @@ const App = () => {
         <FruitsWidget />
       </div>
 
+      {/*  Testa edit funktion på animalWidget */}
+      <div>
+        <h2>Test animalWidget + edit</h2>
+        <AnimalWidget />
+      </div>
     </div>
   );
 };
