@@ -2,7 +2,11 @@ import  { useState } from "react";
 import Button from "../../Components/Button/Button";
 import "./fruitsWidget.scss"; 
 
-const FruitsWidget = () => {
+interface FruitsWidgetProps {
+  theme: "light-mode" | "dark-mode";
+}
+
+const FruitsWidget:React.FC <FruitsWidgetProps> = ({theme}) => {
   const [fruits, setFruits] = useState<string[]>([
     "🍎 Apple",
     "🍌 Banana",
@@ -16,14 +20,14 @@ const FruitsWidget = () => {
   };
 
   return (
-    <div className="fruits-widget">
+    <div className={`fruits-widget ${theme}`}>
       <h2>Fruit List 🍏</h2>
       {fruits.length > 0 ? (
         <ul>
           {fruits.map((fruit) => (
             <li key={fruit} style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               {fruit}
-              <Button text="Remove" onClick={() => removeFruit(fruit)} type="secondary" />
+              <Button text="Remove" onClick={() => removeFruit(fruit)} />
             </li>
           ))}
         </ul>

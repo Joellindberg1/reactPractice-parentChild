@@ -2,7 +2,12 @@ import { useState } from "react";
 import Button from "../../Components/Button/Button";
 import "./dinoWidget.scss";
 
-const DinoWidget = () => {
+interface DinoWidgetProps {
+  theme: "light-mode" | "dark-mode";
+}
+
+
+const DinoWidget:React.FC <DinoWidgetProps> = ({theme}) => {
   const [dinosaurs, setDinosaurs] = useState<string[]>([]);
   const [dino, setDino] = useState<string>("");
 
@@ -13,7 +18,7 @@ const DinoWidget = () => {
   };
 
   return (
-    <div className="dino-widget">
+    <div className={`dino-widget${theme}`}>
       <h2>Add a Dinosaur 🦖</h2>
       <input
         type="text "
@@ -21,7 +26,7 @@ const DinoWidget = () => {
         onChange={(e) => setDino(e.target.value)}
         placeholder="Enter dinosaur name"
       />
-      <Button text="Add" onClick={addDino} type="primary" />
+      <Button text="Add" onClick={addDino} />
 
       <h3>Current Dinosaurs:</h3>
       <ul>

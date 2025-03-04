@@ -8,17 +8,20 @@
     margin: 5px;
   }
   
-  .button.primary {
+  .button {
     background-color: #007bff;
     color: white;
   }
   
-  .button.secondary {
-    background-color: #6c757d;
-    color: white;
-  }
-  
+
   .button:hover {
     opacity: 0.8;
   }
+
+  .button.dark-mode {
+    background-color: #cc1818;
+    color: rgb(235, 23, 23);
+    transition: background-color 0.3s ease-in-out;
+  }
+
   

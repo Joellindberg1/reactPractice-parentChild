@@ -30,9 +30,15 @@ h3 {
   margin: 10px 0;
 }
 
+.animalsWidget.dark-mode h3{
+  color:black;
+}
 p {
   font-size: 14px;
   color: #555;
+  .dark-mode {
+    color: black;
+  }
 }
 
 .input {

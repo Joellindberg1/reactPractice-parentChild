@@ -4,3 +4,16 @@
 	border-radius: 10px;
 	padding: 1rem;
 }
+
+body.dark-mode {
+	.fruits-widget {
+	
+    background-color: #4b4949;
+    color: rgb(0, 0, 0);
+    transition: background-color 0.3s ease-in-out;
+	}
+	li {
+		background-color: rgb(222, 230, 230);
+	}
+}
+

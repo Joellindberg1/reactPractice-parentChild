@@ -2,21 +2,26 @@ import React, { useEffect, useState } from "react";
 import "./app.scss";
 import DinoWidget from "./Widgets/dinoWidget/dinoWidget";
 import FruitsWidget from "./Widgets/fruitsWidget/fruitsWidget";
-import AnimalWidget from "./Widgets/animalWidget/animalWidget";
+import AnimalWidget from "./Widgets/animalWidget/AnimalWidget.tsx";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
-import ThemeToggle from "./Components/ThemeToggle/ThemeToggle.tsx";
+import ThemeToggle from "./Widgets/ThemeToggle/ThemeToggle.tsx";
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState<"light-mode" | "dark-mode">("light-mode");
+  const [theme, setTheme] = useState<"light-mode" | "dark-mode">(
+  localStorage.getItem("theme") as "light-mode" | "dark-mode"|| "light-mode"
+);
+
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.body.className = theme;
+  }, [theme]);
 
   const toggleTheme = () => {
     setTheme((prevTheme:string) => (prevTheme === "light-mode" ? "dark-mode" : "light-mode"));
   };
 
-  useEffect(() => {
-    document.body.className = theme;
-  }, [theme]);
   return (
 
     <div>
@@ -32,19 +37,19 @@ const App: React.FC = () => {
       {/*Testa add funktion på dinoWidget*/}
       <div>
         <h2>Test DinoWidget + Add</h2>
-        <DinoWidget />
+        <DinoWidget theme={theme} />
       </div>
 
       {/*Testa remove funktion på fruitsWidget*/}
       <div>
         <h2>Test FruitsWidget + Remove</h2>
-        <FruitsWidget />
+        <FruitsWidget theme={theme} />
       </div>
 
       {/*Testa edit funktion på animalWidget*/}
       <div>
         <h2>Test animalWidget + edit</h2>
-        <AnimalWidget />
+        <AnimalWidget theme={theme} />
       </div>
 
       <div>

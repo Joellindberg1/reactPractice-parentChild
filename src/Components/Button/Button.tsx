@@ -4,12 +4,13 @@ import "./button.scss";
 interface ButtonProps {
   text: string;
   onClick: () => void;
-  type?: "primary" | "secondary";
+  theme?: "light-mode" | "dark-mode";
 }
 
-const Button: React.FC<ButtonProps> = ({ text, onClick, type = "primary" }) => {
+
+const Button: React.FC<ButtonProps> = ({ text, onClick,theme }) => {
   return (
-    <button className={`button ${type}`} onClick={onClick}>
+    <button className={`button ${theme}`} onClick={onClick}>
       {text}
     </button>
   );

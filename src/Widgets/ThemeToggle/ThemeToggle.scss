@@ -33,11 +33,19 @@
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
+
 }
 
 /* När Dark Mode är aktivt */
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #c9c9c9;
+  // border: 5px solid red;
+  // border-style:double;
+  outline-width: 2px;
+  outline-color: rgb(241, 241, 241);
+  outline-style: solid;
+  outline-offset: 1px;
+  
 }
 
 input:checked + .slider:before {

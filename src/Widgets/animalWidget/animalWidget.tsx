@@ -8,7 +8,12 @@ export type AnimalType = {
   speed: number;
 };
 
-const AnimalWidget = () => {
+interface AnimalWidgetProps {
+  theme: "light-mode" | "dark-mode";
+}
+
+
+const AnimalWidget: React.FC<AnimalWidgetProps> = ({theme}) => {
   const [animals, setAnimals] = useState<AnimalType[]>([
     { emoji: "🐋", name: "Blåval", speed: 40 },
     { emoji: "🐸", name: "Pilgiftsgroda", speed: 12 },
@@ -46,7 +51,7 @@ const AnimalWidget = () => {
   };
 
   return (
-    <div className="animalsWidget">
+    <div className={`animalsWidget ${theme}`}>
       <h2>Animal List 🦡</h2>
       <div className="animalGrid">
         {animals.map((animal) => (
@@ -66,14 +71,14 @@ const AnimalWidget = () => {
                   onChange={(e) => setEditSpeed(Number(e.target.value))}
                   className="input"
                 />
-                <Button text="Save" onClick={saveEdit} type="primary" />
-                <Button text="Cancel" onClick={cancelEdit} type="secondary" />
+                <Button text="Save" onClick={saveEdit} />
+                <Button text="Cancel" onClick={cancelEdit} />
               </>
             ) : (
               <>
                 <h3>{animal.name}</h3>
                 <p>Speed: {animal.speed} km/h</p>
-                <Button text="Edit" onClick={() => startEditing(animal)} type="secondary" />
+                <Button text="Edit" onClick={() => startEditing(animal)} />
               </>
             )}
           </div>
